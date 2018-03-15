@@ -1,0 +1,60 @@
+select 查询
+from
+where >10
+
+group by 集合运算
+having  age>30
+order by 排序
+
+like 模糊查询
+%可以有也没有%
+_ 不知道前面是什么字符
+like "%可以有也没有%"
+like '_sss'
+
+where color ="white" and  color="black"
+where color ="white" or color="black"
+where color in("red","blue","white") 包含red blue white 的信息
+
+
+where color not in ('H')
+
+where size is null
+
+where size is not null
+
+SELECT  name,fenshu, date
+
+
+from student
+
+
+where fenshu>30 and name like '%李%' and date BETWEEN '2017-02-01' and '2019-02-01'
+
+
+ORDER BY fenshu DESC
+
+
+SELECT  name,fenshu, date
+
+
+from student
+
+
+where  date is null
+
+
+ORDER BY fenshu DESC
+
+
+select count(id)#数一下
+
+from
+
+where color in not null
+
+
+select distinct() # 唯一的一次
+
+
+count(distinct(id))

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>当当阅读器</title>
+	<meta name="keywords" content="当当读书,在线阅读,正版电子书"/>
+	<meta name="description" content="当当网数字馆在线销售正版电子书，提供精品正版电子书在线阅读，免费下载和购买" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" href="http://img61.ddimg.cn/image_logo/favicon.ico" type="image/x-icon" />
+	<!--[if lte IE 7.0]>
+	  <script src="lib/json2.js"></script>
+	<![endif]-->
+	<script src="http://api.html5media.info/1.1.4/html5media.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/pcreader-page.min.css?v=1517823243248"/>
+</head>
+<body>
+<div class="loaded" style="display: none;">
+	<div class="reader">
+		<div class="content">
+			<!-- 主要内容 -->
+			<div class="reader-wrapper">
+				<!-- 阅读主体 -->
+				<div class="reader-content">
+					<!-- 阅读内容 -->
+					<div class="reader-msg">
+						<div class="page" id="page"></div>
+						<div class="reader-hf reader-header">
+							<div class="clearfix">
+								<div class="right bookZj"></div>
+								<div class="left bookName"><a href="javascript:;" target="_blank"></a></div>
+							</div>
+							<!-- <a class="tag-icon" href="javascript:;"><i class="fa fa-40 fa-mark"></i></a> -->
+						</div>
+						<div class="reader-hf reader-footer">
+							<div class="clearfix">
+								<div class="right pageNumRight"></div>
+								<div class="left pageNumLeft"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 书签笔记目录等 -->
+				<div class="other-out" style="display:none">
+					<div class="content-other">
+						<div class="cover-box"></div>
+						<div class="content-tab">
+							<div class="tab-nav clearfix">
+								<h1 class="title"></h1>
+							</div>
+							<div class="tab-content">
+								<div class="tab-item" style="display: block">
+									<ul class="cata-list">
+										
+									</ul>
+								</div>
+							</div>
+							<div class="tab-bottom"><span class="buy-auto"><i class="fa fa-checkbox"></i>该书不再提示订阅信息，自动订阅下一章。</span></div>
+							<!-- <div class="track" style="display:none"><div class="scroll" style="top: 0px;"></div></div> -->
+						</div>
+						<div class="share-box" style="display:none">
+	<ul>
+		<li><a href="javascript:;" class="weixin"><i class="fa fa-56 fa-weixin"></i><span>微信好友</span></a></li>
+		<li><a href="javascript:;" class="qq"><i class="fa fa-56 fa-qq"></i><span>QQ好友</span></a></li>
+		<li><a href="javascript:;" class="sina"><i class="fa fa-56 fa-sina"></i><span>新浪微博</span></a></li>
+		<li><a href="javascript:;" class="qzone"><i class="fa fa-56 fa-zone"></i><span>QQ空间</span></a></li>
+		<!-- <li><a href="javascript:;" class="nvlibo"><i class="fa fa-40 fa-nvlibo"></i><span>书友</span></a></li> -->
+	</ul>
+</div>
+
+					</div>
+				</div>
+				<!-- 左右工具条 -->
+				<div class="tool-left" id="ddclick-tool-left" dd_name="左侧工具条">
+	<div class="tool-cover"></div>
+	<ul class="tool-btn">
+		<!-- <li><a href="javascript:;" class="back-btn" id="ddclick-back-btn" title="返回" dd_name="返回"><i class="fa fa-32 fa-back"></i></a></li> -->
+		<li class="clearfix">
+			<a href="javascript:;" class="catalogue-btn clearfix" id="ddclick-catalogue-btn" dd_name="目录">
+				<span class="icon-wrap icon-wrap-catalogue clearfix">
+					<i class="fa fa-18 fa-catalogue"></i>
+					<em>目录</em>
+				</span>
+			</a>
+		</li>
+		<li class="clearfix">
+			<a href="javascript:;" class="book-link clearfix" id="ddclick-tool-left-book-link" target="_blank" dd_name="商品详情">
+				<span class="icon-wrap icon-wrap-page">
+					<i class="fa fa-18 fa-page"></i>
+					<em>详情页</em>
+				</span>	
+			</a>
+		</li>
+		<li class="clearfix">
+			<a href="http://t.dangdang.com/20140107_5pz1" target="_blank" class="download clearfix" id="ddclick-download" dd_name="下载客户端">	
+				<span class="icon-wrap icon-wrap-download">
+					<i class="fa fa-18 fa-download"></i>
+					<em>下载</em>
+				</span>	
+			</a>
+			<div class="tip-box" style="display:none;"></div> 
+		</li>
+	</ul>
+</div>
+<div class="left-bottom">
+	<ul>
+		<li>
+			<a href="javascript:;" class="show-help" id="ddclick-show-help" dd_name="帮助">
+				指南
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="right-top" style="z-index:9;">
+	<a href="javascript:;" class="rbtn login" id="ddclick-login" style="display: none;" dd_name="登录">登录</a>
+	<!-- <a href="javascript:;" class="rbtn shoucang" id="ddclick-shoucang" dd_name="收藏">收藏</a> -->
+	<div class="cart-li">
+		<a href="javascript:;" class="buy-book" id="ddclick-tool-left-buy-book" target="_blank" dd_name="购买">
+			购买全本
+		</a>
+	</div>
+</div>
+<div class="tool-right" dd_name="右侧工具条" id="ddclick-tool-right">
+	<div class="tool-cover"></div>
+	<div class="bottom-d">
+		<ul class="tool-btn">
+	        <li>
+	        	<a href="javascript:;" class="full-btn" id="ddclick-full-btn" dd_name="全屏/退出全屏">
+	        		<i class="fa fa-full"></i>
+	        		<span class="tooltip">全屏</span>
+	        	</a>
+	        </li>
+	        <li class="zhuigengli hide">
+	        	<a href="javascript:;" class="zhuigeng-btn" id="ddclick-zhuigeng-btn"  dd_name="追更/取消追更">
+	        		<i class="fa fa-zhuigeng"></i>
+	        		<span class="tooltip"></span>
+	        	</a>
+	        </li>
+	        <li>
+	        	<a href="javascript:;" class="layor-btn" id="ddclick-layor-btn" dd_name="阅读模式">
+	        		<i class="fa fa-layor"></i>
+	        		<span class="tooltip">切换单页</span>
+	        	</a>
+	        </li>
+	        <li id="comment" style="display:none;">
+	        	<a href="javascript:;" target="_blank" class="comment" dd_name="书吧">
+	        		<i class="fa fa-comment"></i>
+	        		<span class="articleNum hide"></span>
+	        		<span class="tooltip">我要写书评</span>
+	        	</a>
+	        </li>
+	        <li>
+	        	<a href="javascript:;" class="share-btn" id="ddclick-share-btn"  dd_name="分享">
+	        		<i class="fa fa-share"></i>
+	        		<span class="tooltip">分享</span>
+	        	</a>
+	        </li>
+	    </ul>
+	    <ul class="tool-btn">
+	    	<li>
+	    		<a href="javascript:;" class="feedback" id="ddclick-feedback" dd_name="意见反馈">
+				    <i class="fa fa-feedback"></i>
+				    <span class="tooltip">意见反馈</span>
+				</a>
+	    	</li>
+	    </ul>
+	    <ul class="tool-btn tool-turn">
+	    	<li><a href="javascript:;" class="turn-left" id="ddclick-r-turn-left" title="上一页" dd_name="上一页"><i class="fa fa-left"></i></a></li>
+	    	<li><a href="javascript:;" class="trun-right" id="ddclick-r-trun-right" title="下一页" dd_name="下一页"><i class="fa fa-right"></i></a></li>
+	    </ul>
+	</div>
+</div>
+
+				<!-- 右侧滚动条 -->
+				<div class="reader-scroll">
+    <div class="btn">
+    	<span class="bar"></span>
+		<div class="tips">
+	    	<div class="page-num clearfix">
+	    		<a href="javascript:;" class="fr">确定</a>
+	    		到<input type="text" value="52">/<span>1255</span>
+	    	</div>
+	    	<p class="zj">第一章 刺客列传2004</p>
+	    	<span class="tip-icon"></span>
+		</div>
+    </div>
+</div>
+				<!-- 帮助 -->
+				<!--帮助的弹层 -->
+<div class="help" id="help">
+	<div class="cover-box"></div>
+	<div class="center-box">
+		<div class="title">
+			快捷键
+			<a href="javascript:;" class="close" title="关闭"></a>
+		</div>
+		<ul class="clearfix">
+			<li class="first">
+				<div><span class="border"><i class="fa fa-top-sj"></i></span></div>
+				<div>
+					<span class="border"><i class="fa fa-left-sj"></i></span><span class="border"><i class="fa fa-bottom-sj"></i></span><span class="border"><i class="fa fa-right-sj"></i></span>
+				</div>
+				<p>上下翻页/左右翻页</p>
+			</li>
+			<li class="two">
+				<span class="border">F<em>11</em></span>
+				<p>全屏阅读</p>
+			</li>
+			<!-- <li>
+				<span class="border">Esc</span>
+				<p>退出全屏阅读</p>
+			</li> -->
+		</ul>
+	</div>
+	<div class="img-icon">
+		<div class="img-icon-item left ml">
+			<span>目录</span>
+		</div>
+		<div class="img-icon-item left xqy">
+			<span>详情页</span>
+		</div>
+		<div class="img-icon-item left smxz">
+			<span>扫码下载APP</span>
+		</div>
+		<div class="img-icon-item left syzn">
+			<span>使用指南</span>
+		</div>
+		<!-- <div class="img-icon-item right qp">
+			<span>全屏/退出全屏</span>
+		</div>
+		<div class="img-icon-item right ydqh">
+			<span>单/双页切换</span>
+		</div> -->
+		<div class="img-icon-item right sp">
+			<span>我要写书评</span>
+		</div>
+		<div class="img-icon-item right fx">
+			<span>分享</span>
+		</div>
+		<div class="img-icon-item right yjfk">
+			<span>意见反馈</span>
+		</div>
+		<div class="img-icon-item right syy">
+			<span>上一页</span>
+		</div>
+		<div class="img-icon-item right xyy">
+			<span>下一页</span>
+		</div>
+	</div>
+</div>
+<!-- 微信分享二维码 -->
+<div class="help" id="weixin-share">
+	<div class="cover-box"></div>
+	<div class="center-box">
+		<div class="title">
+			扫描二维码分享到微信
+			<a href="javascript:;" class="close" title="关闭"></a>
+		</div>
+		<div class="erweima-box" id="erweima-box"></div>
+	</div>
+</div>
+<!-- 进度是否同步 -->
+<div class="help" id="syncWhen">
+	<div class="cover-box2"></div>
+	<div class="center-box">
+		<h3 class="msg-title">是否同步云端进度继续阅读？</h3>
+		<p class="msg">fdsafdsatg好感人好的羊肉汤而后有男人核桃仁和特惠天热义和团任务后突然他</p>
+		<div class="btns-box">
+			<a href="javascript:;" class="cancel">取消</a>
+			<a href="javascript:;" class="confirm">确认</a>
+		</div>
+	</div>
+</div>
+<!-- 购买纸质书 -->
+<div class="help" id="buyPopup"  dd_name="纸电书籍购买">
+	<div class="cover-box"></div>
+	<div class="center-box">
+		<div class="title">
+			<a href="javascript:;" class="close" title="关闭"></a>
+		</div>
+		<div class="buy-box">
+			<h2 class="book-name"></h2>
+			<div class="btn-box">
+				<a href="" dd_name="购买纸书" target="_blank" class="buy-paper-book">购买纸书</a><a href="" dd_name="购买电子书" target="_blank" class="buy-e-book">购买电子书</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 下单页 -->
+<div class="help" id="orderPopup" dd_name="原创下单弹窗">
+	<div class="cover-box-order"></div>
+	<div class="center-box">
+		<div class="title">
+			<a href="javascript:;" class="close" title="关闭"></a>
+		</div>
+		<div class="orderInner"></div>
+	</div>
+</div>
+<!-- 续借 -->
+<div class="help" id="borrowBook" dd_name="续借弹窗">
+	<div class="cover-box"></div>
+	<div class="center-box">
+		<div class="title">
+			<a href="javascript:;" class="close" title="关闭"></a>
+		</div>
+		<div class="order-title">
+			续借
+		</div>
+		<div class="borrowInner"></div>
+	</div>
+</div>
+<!-- 用户反馈 -->
+<div class="help" id="feedback">
+	<div class="cover-box"></div>
+	<div class="center-box">
+		<a href="javascript:;" class="close" title="关闭"></a>
+		<div class="center-inner">
+			<h3 class="feedback-p">输入您的反馈内容（必填）</h3>
+			<div class="textarea">
+				<textarea id="input-advice" maxlength="500"></textarea>
+				<span class="fontNum"><span>0</span>/500</span>
+			</div>
+			<h3 class="feedback-p">邮箱或手机号</h3>
+			<input type="text" id="input-num" maxlength="50">
+			<div class="bottom-btn">
+				<a href="javascript:;" class="submit">确定</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 消息提示 -->
+<div class="message-tip"><div class="html"></div><a href="" class="close">×</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="loading">正在加载中...</div>
+<div class="error" style="display:none">
+	<a href="javascript:;">返回书城</a>
+</div>
+					
+<!-- 工具 -->
+<div id="popup-note" class="u-inputpanel">
+	<div class="content"></div>
+	<div class="arr">
+	  <span class="t0"></span>
+	  <span class="t1"></span>
+	</div>
+</div>
+<!-- 工具end -->
+<!-- 购买弹窗begin html_modules/payment/popUp.html-->
+	<div class="payment_popUp_module">
+		<div class="popUp_bg"></div>
+		<div class="popUp_detail_container">
+			<div class="popUp_detail">
+			</div>
+			<span class="closeBtn"></span>
+		</div>
+	</div>
+	<div class="load_module">
+    	<div class="gray_bg"></div>
+    	<div class="load_detail_container">
+    		<p><img src="images/loading.gif" alt=""></p>
+    		<p>支付中...</p>
+    	</div>
+    </div>
+	<!-- 购买弹窗end -->
+	<!-- 批量购买start -->
+	<div class="buy-chapter-count-container">
+	<div class="bg"></div>
+	<div class="buy-chapter-detail">
+		<div class="title">订单详情<span class="close-btn"><i></i></span></div>
+		<div class="white-bg">
+			<p class="start-chapter-number">您将从<em class="red"></em>开始购买,请选择批量购买的章节数</p>
+			<ul class="clearfix" id="getNeedBuyChapterCount">
+				<!--<li><em>后20章</em></li>
+				<li class="current"><em>后50章</em></li>
+				<li><em>后100章</em></li>
+				<li><em>全部章节</em></li>-->
+			</ul>
+		</div>
+		<div class="gray-bg">
+			<div class="comment">
+				<h4>温馨提示</h4>
+				1.免费章节及已购买章节不会重新扣费，请放心购买。<br>
+				2.批量购买章节是付费章节，如果中间有免费的章节或已购买章节，下载时将一并下载。
+			</div>
+		</div>
+	</div>
+	<div class="buy-chapter-info">
+		<div class="title"><span class="go-back-btn"><i></i></span>书籍详情<span class="close-btn"><i></i></span></div>
+		<div class="white-bg">
+			<div class="info-detail">
+				需购章节：<span id="needBuyChapterCount"></span>章<br>
+				应付总额：<em class="red"><span id="needPay"></span>铃铛</em><br>
+				当前余额：<em class="red"><span id="accountMoney"></span>铃铛</em><br>
+				您将购买：<span id="startChapterTitle"></span><br>
+	            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至：<span id="endChapterTitle"></span>
+			</div>
+			<input type="hidden" value="" id="startIndex">
+			<input type="hidden" value="" id="endIndex">
+			<input type="hidden" value="" id="chapterCount">
+			<input type="hidden" value="" id="chapterId">
+		</div>
+		<div class="gray-bg">
+			<p class="button-line"><a class="button"></a></p>
+			<div class="comment">
+				<h4>温馨提示</h4>
+				其中免费<span id="freeChapterCount"></span>章，不会重复计费
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- 批量购买end -->
+<script type="text/javascript">
+	var require = {urlArgs: "v=1517823243248"}
+</script>
+<script type="text/javascript" src="lib/require.min.js" data-main="js/reader.min"></script>
+<script>
+	require.config({
+　　　　　　baseUrl: "js/",
+　　　　　　paths: {
+　　　　　　    "jquery": "../lib/jquery",
+				"qrcode": "../lib/jquery.qrcode.min",
+　　　　　　    "nicescroll": "../lib/jquery.nicescroll",
+// 　　　　　　    "zclip": "../lib/jquery.zclip.min",
+　　　　　　    "mousewheel": "../lib/jquery.mousewheel.min",
+                "underscore": "../lib/underscore.min",
+                "backbone": "../lib/backbone.min"
+　　　　    },
+			shim:{
+				'nicescroll': ['jquery'],
+				// 'zclip': ['jquery'],
+				'qrcode': ['jquery']
+			}
+　　    });
+</script>
+<script type="text/javascript" src="http://click.dangdang.com/js_tracker.js?20151216"></script>
+</body>
+</html>
